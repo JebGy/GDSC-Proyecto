@@ -44,12 +44,6 @@ const Formulario = () => {
   return (
     <View style={styles.container}>
       <Input
-        placeholder="nombre"
-        onChangeText={(text) => {
-          setemail(text);
-        }}
-      />
-      <Input
         placeholder="email"
         onChangeText={(text) => {
           setemail(text);
