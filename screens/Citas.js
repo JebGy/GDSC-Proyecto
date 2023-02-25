@@ -5,7 +5,8 @@ import {View, StyleSheet} from 'react-native';
 const Citas = () => {
     return (
         <View>
-            <Text>Citas</Text>
+            <Text>{
+                }</Text>
         </View>
     );
 }

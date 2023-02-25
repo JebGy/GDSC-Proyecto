@@ -2,19 +2,23 @@ import { Button, Text } from "@rneui/base";
 import React, { useEffect, useState } from "react";
 import { View, StyleSheet } from "react-native";
 
-const Card = ({ tipo, valores }) => {
+const Card = ({ credential, tipo, valores }) => {
   const [nombre, setnombre] = useState(valores.nombre);
   const [description, setdescription] = useState(valores.description);
+  const [isSuscriptor, setisSuscriptor] = useState(false);
   const [diasLaborales, setdiasLaborales] = useState([]);
-  const dias=["Lun","Mar","Mie","Jue","Vie","Sab","Dom"];
+  const dias = ["Lun", "Mar", "Mie", "Jue", "Vie", "Sab", "Dom"];
 
   useEffect(() => {
     const lista = [];
     for (const key in valores.diasLaborales) {
-        const item = valores.diasLaborales[key];
-        lista.push(item);
+      const item = valores.diasLaborales[key];
+      lista.push(item);
     }
     setdiasLaborales(lista);
+    if(credential===valores.suscriptores.sus){
+      setisSuscriptor(true);
+    }
   }, []);
 
   return (
@@ -36,12 +40,12 @@ const Card = ({ tipo, valores }) => {
         {description}
       </Text>
 
-      <View style={
-        {
-            display: "flex",
-            flexDirection: "row",
-        }
-      }>
+      <View
+        style={{
+          display: "flex",
+          flexDirection: "row",
+        }}
+      >
         {diasLaborales.map((item, index) => {
           return (
             <Text
@@ -53,7 +57,7 @@ const Card = ({ tipo, valores }) => {
                 borderRadius: 10,
                 marginTop: 10,
                 marginVertical: 5,
-                marginBottom:20,
+                marginBottom: 20,
               }}
               key={index}
             >
@@ -62,9 +66,20 @@ const Card = ({ tipo, valores }) => {
           );
         })}
       </View>
-      <Button buttonStyle={{width: "100%", backgroundColor: "#5693fb", borderRadius: 10, marginBottom: 10,}} onPress={() => {}}>
-        <Text style={{color: "#ffffff"}}>Reservar</Text>
-        </Button>
+      <Button
+        buttonStyle={{
+          width: "100%",
+          backgroundColor: "#5693fb",
+          borderRadius: 10,
+          marginBottom: 10,
+        }}
+        onPress={() => {}}
+        disabled={isSuscriptor}
+      >
+        <Text style={{ color: "#ffffff" }}>
+          {isSuscriptor ? "Suscrito" : "Suscribirse"}
+        </Text>
+      </Button>
     </View>
   );
 };

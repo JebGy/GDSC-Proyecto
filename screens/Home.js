@@ -6,6 +6,8 @@ import Card from "../components/Card";
 import { loadData } from "../api/api.consume";
 
 const Home = ({ route }) => {
+  
+  const credential=route.params.user.uid;
   //getSesion
   const { user } = route.params;
   const [currentuser, setcurrentuser] = useState(user.email);
@@ -22,6 +24,7 @@ const Home = ({ route }) => {
             nombre: item.nombre,
             description: item.descripcion,
             diasLaborales: item.diasLaborales,
+            suscriptores: item.suscriptores,
           },
         });
       }
@@ -36,7 +39,9 @@ const Home = ({ route }) => {
         {
           // Aquí se renderizarán los componentes Card
           listaFeed.map((item, index) => {
-            return <Card key={index} tipo={item.tipo} valores={item.valores} />;
+            return <Card credential={
+              credential
+            } key={index} tipo={item.tipo} valores={item.valores} />;
           })
         }
       </ScrollView>
