@@ -23,7 +23,6 @@ const Formulario = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         Alert.alert("Correcto", "Usuario creado correctamente");
-        setuser(userCredential.user);
         navigation.navigate("Home", {user: userCredential.user});
       })
       .catch((error) => {
