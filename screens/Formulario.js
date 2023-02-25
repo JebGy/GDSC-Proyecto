@@ -74,6 +74,8 @@ const styles = StyleSheet.create({
   container: {
     display: "flex",
     paddingTop: 50,
+    backgroundColor: "#ffffff",
+    height: "100%",
   },
   buttons: {
     marginTop: 10,

@@ -1,17 +1,89 @@
-import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import { Text } from "@rneui/base";
+import React, { useEffect, useState } from "react";
+import { View, StyleSheet } from "react-native";
 
-const Card = ({tipo, valores}) => {
-    if(tipo==="cli"){
-        
+const Card = ({ tipo, valores }) => {
+  const [nombre, setnombre] = useState(valores.nombre);
+  const [description, setdescription] = useState(valores.description);
+  const [diasLaborales, setdiasLaborales] = useState([]);
+  const dias=["Lun","Mar","Mie","Jue","Vie","Sab","Dom"];
+
+  useEffect(() => {
+    const lista = [];
+    for (const key in valores.diasLaborales) {
+        const item = valores.diasLaborales[key];
+        lista.push(item);
     }
-    return (
-        <View>
-            
-        </View>
-    );
-}
+    setdiasLaborales(lista);
+  }, []);
 
-const styles = StyleSheet.create({})
+  return (
+    <View style={styles.container}>
+      <Text
+        style={{
+          fontSize: 20,
+          fontWeight: "bold",
+          color: "#5693fb",
+        }}
+      >
+        {nombre}
+      </Text>
+      <Text
+        style={{
+          fontSize: 14,
+        }}
+      >
+        {description}
+      </Text>
+
+      <View style={
+        {
+            display: "flex",
+            flexDirection: "row",
+        }
+      }>
+        {diasLaborales.map((item, index) => {
+          return (
+            <Text
+              style={{
+                paddingHorizontal: 5,
+                paddingVertical: 5,
+                backgroundColor: item === "true" ? "#56fb95" : "#fb5656",
+                marginHorizontal: 5,
+                borderRadius: 10,
+                marginTop: 10,
+                marginVertical: 5,
+              }}
+              key={index}
+            >
+              {dias[index]}
+            </Text>
+          );
+        })}
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    width: "100%",
+    height: "auto",
+    display: "flex",
+    backgroundColor: "#ffffff",
+    borderRadius: 10,
+    marginVertical: 10,
+    padding: 10,
+    //drop shadow
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 1,
+    shadowRadius: 3.84,
+    elevation: 9,
+  },
+});
 
 export default Card;
