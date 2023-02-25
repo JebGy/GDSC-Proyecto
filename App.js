@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Formulario from "./screens/Formulario";
 import { NavigationContainer } from "@react-navigation/native";
 import Home from "./screens/Home";
+import Citas from "./screens/Citas";
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -20,6 +21,11 @@ export default function App() {
             headerShown: false
           }
         } name="Home" component={Home} />
+        <Stack.Screen options={
+          {
+            headerShown: false
+          }
+        } name="Citas" component={Citas} />
       </Stack.Navigator>
     </NavigationContainer>
   );
