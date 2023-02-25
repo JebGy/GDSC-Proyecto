@@ -1,4 +1,4 @@
-import { Text } from "@rneui/base";
+import { Button, Text } from "@rneui/base";
 import React, { useEffect, useState } from "react";
 import { View, StyleSheet } from "react-native";
 
@@ -62,6 +62,9 @@ const Card = ({ tipo, valores }) => {
           );
         })}
       </View>
+      <Button butt={{width: "100%", backgroundColor: "#5693fb", borderRadius: 10, marginBottom: 10,}} onPress={() => {}}>
+        <Text style={{color: "#ffffff"}}>Reservar</Text>
+        </Button>
     </View>
   );
 };
