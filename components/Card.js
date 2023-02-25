@@ -53,6 +53,7 @@ const Card = ({ tipo, valores }) => {
                 borderRadius: 10,
                 marginTop: 10,
                 marginVertical: 5,
+                marginBottom:20,
               }}
               key={index}
             >
@@ -67,12 +68,13 @@ const Card = ({ tipo, valores }) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
+    width: "98%",
     height: "auto",
     display: "flex",
     backgroundColor: "#ffffff",
     borderRadius: 10,
     marginVertical: 10,
+    alignSelf: "center",
     padding: 10,
     //drop shadow
     shadowColor: "#000",
@@ -82,7 +84,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 1,
     shadowRadius: 3.84,
-    elevation: 9,
+    elevation: 4,
   },
 });
 

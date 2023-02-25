@@ -49,14 +49,15 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingHorizontal: 10,
     width: "100%",
+    height: "100%",
     alignItems: "center",
     backgroundColor: "#ffffff",
   },
   scrollview: {
     width: "100%",
     height: "100%",
+    
     //center the content
-    display: "flex",
   },
 });
 
